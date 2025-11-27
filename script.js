@@ -27,6 +27,7 @@ function switchTab(tabName) {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
+// === ОБНОВЛЕННАЯ ФУНКЦИЯ ЗАГРУЗКИ СЕРИЙ ===
 function loadSeries() {
     const listContainer = document.getElementById('episode-list-container');
     const player = document.getElementById('main-player');
@@ -44,9 +45,15 @@ function loadSeries() {
         item.className = 'episode-item';
         item.id = `ep-btn-${index}`;
         
+        // Тут мы создаем HTML для элемента списка: картинка + текст
         item.innerHTML = `
-            <span class="episode-title">${ep.title}</span>
-            <span class="episode-meta">Смотреть сейчас ▶</span>
+            <div class="ep-thumb-wrapper">
+                <img src="${ep.poster}" alt="Thumb">
+            </div>
+            <div class="ep-info">
+                <span class="episode-title">${ep.title}</span>
+                <span class="episode-meta">Смотреть ▶</span>
+            </div>
         `;
         
         item.addEventListener('click', () => {
@@ -58,7 +65,6 @@ function loadSeries() {
     });
 
     function playEpisode(ep, index) {
-        // Здесь мы просто ставим ссылку на файл
         player.src = ep.videoFile;
         player.poster = ep.poster || "";
         title.innerText = ep.title;
@@ -100,6 +106,10 @@ const modalName = document.getElementById('modal-name');
 const modalDesc = document.getElementById('modal-desc');
 const formsContainer = document.getElementById('modal-forms-buttons');
 
+// ЛАЙТБОКС
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightbox-img');
+
 function openModal(char) {
     modalName.innerText = char.name;
     formsContainer.innerHTML = '';
@@ -134,8 +144,20 @@ function closeModal() {
     modal.style.display = 'none';
 }
 
+modalImg.addEventListener('click', () => {
+    lightbox.style.display = 'flex';
+    lightboxImg.src = modalImg.src;
+});
+
+function closeLightbox() {
+    lightbox.style.display = 'none';
+}
+
 window.onclick = function(event) {
     if (event.target == modal) {
         closeModal();
+    }
+    if (event.target == lightbox) {
+        closeLightbox();
     }
 }
