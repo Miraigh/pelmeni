@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Победи меня пока я ем пельмени</title>
     <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;700;900&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=6">
+    <link rel="stylesheet" href="style.css?v=7">
 </head>
 <body>
 
@@ -13,7 +13,7 @@
 
     <nav>
         <div class="nav-container">
-            <span class="brand" onclick="switchTab('home')">ПОБЕДИ МЕНЯ ПОКА Я ЕМ<span class="highlight">ПЕЛЬМЕНИ</span></span>
+            <span class="brand" onclick="switchTab('home')">ПОБЕДИ МЕНЯ ПОКА Я ЕМ <span class="highlight">ПЕЛЬМЕНИ</span></span>
             <div class="nav-links">
                 <a href="#" onclick="switchTab('home')" class="nav-btn active" data-tab="home">Главная</a>
                 <a href="#" onclick="switchTab('series')" class="nav-btn" data-tab="series">Эпизоды</a>
@@ -71,7 +71,10 @@
             <span class="close-btn" onclick="closeModal()">&times;</span>
             <div class="modal-body">
                 <div class="modal-image-box">
-                    <img id="modal-img" src="" alt="">
+                    <div class="img-zoom-wrapper" title="Нажми, чтобы увеличить">
+                        <img id="modal-img" src="" alt="">
+                        <div class="zoom-icon">🔍</div>
+                    </div>
                 </div>
                 <div class="modal-info">
                     <h2 id="modal-name">Имя</h2>
@@ -84,8 +87,12 @@
         </div>
     </div>
 
+    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+        <span class="close-lightbox-btn">&times;</span>
+        <img class="lightbox-content" id="lightbox-img">
+    </div>
+
     <script src="data.js"></script>
     <script src="script.js"></script>
 </body>
-
 </html>
