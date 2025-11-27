@@ -6,7 +6,7 @@ const siteContent = {
             title: "Эпизод 1: Зеленый Попкорн",
             description: "Начало истории. Неудачный эксперимент с закуской приводит к неожиданным последствиям для Кости и всего города. Появление первых способностей.",
             // ВСТАВЬ СЮДА ПРЯМУЮ ССЫЛКУ ИЗ GITHUB RELEASES
-            videoFile: "СЮДА_ВСТАВИТЬ_ССЫЛКУ_НА_ФАЙЛ.mp4", 
+            videoFile: "https://github.com/Miraigh/pelmeni/releases/download/episodes/ep1.mp4", 
             poster: "thumbnails/ep1.jpg" 
         }
     ],
@@ -96,4 +96,5 @@ const siteContent = {
             ]
         }
     ]
+
 };
