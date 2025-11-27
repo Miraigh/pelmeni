@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PELMEN: Победи Меня</title>
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;700;900&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css?v=6">
+</head>
+<body>
+
+    <div class="bg-glow"></div>
+
+    <nav>
+        <div class="nav-container">
+            <span class="brand" onclick="switchTab('home')">PELMEN<span class="highlight">PROJECT</span></span>
+            <div class="nav-links">
+                <a href="#" onclick="switchTab('home')" class="nav-btn active" data-tab="home">Главная</a>
+                <a href="#" onclick="switchTab('series')" class="nav-btn" data-tab="series">Эпизоды</a>
+                <a href="#" onclick="switchTab('characters')" class="nav-btn" data-tab="characters">Герои</a>
+            </div>
+        </div>
+    </nav>
+
+    <section id="view-home" class="view-section active">
+        <div class="hero">
+            <div class="hero-content">
+                <div class="logo-wrapper">
+                    <img src="assets/logo.png" alt="PELMEN Logo" class="main-logo">
+                </div>
+                <p class="tagline">Эпическая битва за пельмени и судьбу мира</p>
+                <div class="hero-buttons">
+                    <button onclick="switchTab('series')" class="btn btn-primary">СМОТРЕТЬ СЕРИАЛ</button>
+                    <button onclick="switchTab('characters')" class="btn btn-secondary">ДОСЬЕ</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="view-series" class="view-section" style="display: none;">
+        <div class="container">
+            <h2 class="section-title">Смотреть онлайн</h2>
+            <div class="cinema-layout">
+                <div class="player-box">
+                    <video id="main-player" controls poster="">
+                        <source src="" type="video/mp4">
+                        Ваш браузер не поддерживает видео.
+                    </video>
+                    <div class="video-info">
+                        <h3 id="now-playing-title">Выберите эпизод</h3>
+                        <p id="now-playing-desc">Описание серии...</p>
+                    </div>
+                </div>
+                <div class="playlist-box">
+                    <h3>Список эпизодов</h3>
+                    <div id="episode-list-container" class="episode-scroller"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="view-characters" class="view-section" style="display: none;">
+        <div class="container">
+            <h2 class="section-title">Персонажи</h2>
+            <div class="char-avatars-grid" id="char-grid-container"></div>
+        </div>
+    </section>
+
+    <div id="char-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <div class="modal-body">
+                <div class="modal-image-box">
+                    <img id="modal-img" src="" alt="">
+                </div>
+                <div class="modal-info">
+                    <h2 id="modal-name">Имя</h2>
+                    <div id="modal-forms-buttons" class="form-switcher"></div>
+                    <div class="modal-stats">
+                        <p id="modal-desc">Описание...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <p>PELMEN PROJECT © 2025</p>
+            <p class="sub-footer">Made with Gemini & Sora</p>
+        </div>
+    </footer>
+
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
